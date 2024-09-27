@@ -1,0 +1,32 @@
+﻿<Window x:Class="Test_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test_WPF"
+        xmlns:views="clr-namespace:Test_WPF.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="610">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="30"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="175" >
+            </ColumnDefinition>
+            <ColumnDefinition>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="LightGray"/>
+        <views:ZoomBar Grid.Row="1" ScaleEmitter="ScaleHasChanged" Foreground="Gray"/>
+        <views:ImageDisplay x:Name="imgDisplay" Grid.Column="1"/>
+    </Grid>
+</Window>

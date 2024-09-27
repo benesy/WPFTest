@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Test_WPF.View.ZoomBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Test_WPF.View" d:DataContext="{d:DesignInstance Type=local:ZoomBar}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="175"
+             Name="ZoomBarCtrl">
+    <Grid>
+        <StackPanel>
+            <Button x:Name="btUp" Content="^" Grid.Row="0" VerticalAlignment="Bottom" Margin="0,10,0,0" Click="btUp_Click"/>
+            <ItemsControl x:Name="icMenu"  Grid.Row="1">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition MinHeight="18"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="Orange" Width="{Binding SeparatorSize}" Height="20" VerticalAlignment="Center" Visibility="{Binding SelectedVisibility}"/>
+                            <TextBlock Text="{Binding Label}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8" Visibility="{Binding Visibility}"/>
+                            <Rectangle Fill="Gray" Width="{Binding SeparatorSize}" Height="2" VerticalAlignment="Bottom"/>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Button x:Name="btdown" Content="^" Grid.Row="2" VerticalAlignment="Top" Margin="0,0,0,10" Click="btdown_Click">
+                <Button.RenderTransform>
+                    <RotateTransform Angle="180" CenterX="15" CenterY="15"></RotateTransform>
+                </Button.RenderTransform>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
